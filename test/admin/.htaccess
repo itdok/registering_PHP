@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile D:\OSPanel\domains\registering_PHP\test\admin\.htpasswd
+Require valid-user
