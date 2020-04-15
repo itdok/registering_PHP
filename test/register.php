@@ -1,9 +1,15 @@
 <?php
-    session_start();
-    if (isset($_SESSION['user'])) {
-        header('Location: profile.php');
-    }
-    $collation_error  = $_SESSION['message'];
+    require_once "inc/functions/variable_is.php";
+    require_once 'inc/functions/do_login.php';
+//    session_start();
+//
+//    if (isset($_SESSION['user'])) {
+//        header('Location: profile.php');
+//    }
+//
+//    if ($_GET['do'] == 'login') {
+//        header('Location: login.php');
+//    }
 ?>
 <!doctype html>
 <html lang="ru">
@@ -32,10 +38,7 @@
                     <button type="submit">Зарегистрировать</button>
                     <p>У Вас есть аккаунт?<a href="login.php"> Авторизация</a></p>
                     <?php
-                    if (isset($collation_error)) {
-                        echo '<p class="msg" > ' . $collation_error . ' </p>';
-                        }
-                        session_destroy();
+                        require_once  "inc/functions/func_message.php";
                     ?>
                 </form>
             </div>

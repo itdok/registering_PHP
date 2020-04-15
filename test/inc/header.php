@@ -2,6 +2,7 @@
     <div class="header_section">
         <div class="header_item headerLogo"><a href="/test/index.php" class="a_index">MVC</a></div>
         <div class="header_item headerButton"><a href="/test/index.php" class="a_index">Основная страница</a></div>
+        <div class="header_item headerButton"><a href="?do=login" class="a_index">Мой профиль</a></div>
         <div class="header_item headerButton"><a href="/test/admin/admin.php" class="a_index">Админ</a></div>
     </div>
     <div class="header_section">

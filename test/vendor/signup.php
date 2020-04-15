@@ -9,16 +9,16 @@
     $pass           = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
     $pass_confirm   = $_POST['pass_confirm'];
 
-    if (mb_strlen($login) < 5 || mb_strlen($login) > 90) {
-        $_SESSION['message'] = "Недопустимая длина логина" .
+    if (mb_strlen($login) < 2 || mb_strlen($login) > 10) {
+        $_SESSION['message'] = "Недопустимая длина логина (от 2 до 10 символов)" .
             header ('Location: ../register.php');
         exit();
-    } elseif (mb_strlen($name) < 3 || mb_strlen($name) > 50) {
-        $_SESSION['message'] = "Недопустимая длина имени" .
+    } elseif (mb_strlen($name) < 2 || mb_strlen($name) > 10) {
+        $_SESSION['message'] = "Недопустимая длина имени (от 2 до 10 символов)" .
             header ('Location: ../register.php');
         exit();
-    } elseif (mb_strlen($pass) < 2 || mb_strlen($pass) > 6) {
-        $_SESSION['message'] = "Недопустимая длина пароля (от 2 до 6 символов)" .
+    } elseif (mb_strlen($pass) < 3 || mb_strlen($pass) > 8) {
+        $_SESSION['message'] = "Недопустимая длина пароля (от 3 до 8 символов)" .
             header ('Location: ../register.php');
         exit();
     }
@@ -35,8 +35,8 @@
     mysqli_query ($connect, "INSERT INTO `users` (`id`, `login`, `pass`, `name`, `avatar`) 
                                     VALUES (NULL, '$login', '$pass', '$name' , '$path')");
 
-    $_SESSION['message'] = 'Регистрация прошла успешно!';
-    header ('Location: ../index.php');
+        $_SESSION['message'] = 'Регистрация прошла успешно!';
+            header ('Location: ../index.php');
 
     } else {
         $_SESSION['message'] = 'Пароли не совпадают';

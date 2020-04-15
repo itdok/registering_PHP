@@ -1,8 +1,15 @@
 <?php
-session_start();
-if (isset($_SESSION['user'])) {
-    header('Location: profile.php');
-}
+    require_once "inc/functions/variable_is.php";
+    require_once 'inc/functions/do_login.php';
+//    session_start();
+//
+//    if (isset($_SESSION['user'])) {
+//        header('Location: profile.php');
+//    }
+//
+//    if ($_GET['do'] == 'login') {
+//        header('Location: login.php');
+//    }
 ?>
 <!doctype html>
 <html lang="ru">
@@ -24,10 +31,7 @@ if (isset($_SESSION['user'])) {
                 <button type="submit">Авторизовать</button>
                 <p>У Вас нет аккаунта?<a href="register.php"> Регистрация</a></p>
                 <?php
-                if (isset($_SESSION['message'])) {
-                    echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
-                }
-                unset($_SESSION['message']);
+                    require_once  "inc/functions/func_message.php";
                 ?>
             </form>
         </div>
